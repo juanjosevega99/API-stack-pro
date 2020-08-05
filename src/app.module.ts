@@ -14,6 +14,12 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       username: 'postgres',
       password: 'admin123',
       database: 'app',
+      entities: ["dist/**/*.entity{.ts,.js}"],
+      migrationsTableName: 'migration',
+      migrations: ['src/migration/*.ts'],
+      cli: {
+        migrationsDir: 'src/migration',
+      },
       ssl: false,
     }),
     GraphQLModule.forRoot({
